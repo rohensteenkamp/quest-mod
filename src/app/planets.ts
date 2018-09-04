@@ -1,4 +1,4 @@
-import { Planet } from './planet';
+import { Planet } from './models/planet';
 
 export const PLANETS: Planet [] = [
     { name:'codeez' },

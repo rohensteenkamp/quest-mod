@@ -1,0 +1,9 @@
+<h1>Create a Planet</h1>
+<form>
+  <input #newPlanet type="text" placeholder="Add new planet" (keyup.enter)="addPlanet(newPlanet.value)">
+<button type="button" (click)="addPlanet(newPlanet.value)">Create</button>
+<h1>Planet Listings</h1>
+<ul>
+  <li *ngFor = "let planet of planets" (click)="viewPlanet(planet)">{{planet.name}}</li>
+</ul>
+</form>

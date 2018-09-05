@@ -25,14 +25,16 @@ constructor() { }
   //   this.selectedPlanet.next(planet);
   // }
 
-  addPlanet(planetName: string, planetDescription: string) {
-    if(planetName && planetDescription) {
-      const newPlanet = new Planet();
-      newPlanet.name = planetName;
-      newPlanet.description = planetDescription;
-      this.planets.push(newPlanet);
+  addPlanet(planet: Planet) {
+    if(planet.name && planet.description) {
+      this.planets.push(planet);
       // this.planets.next([newPlanet, ...this.planets.getValue()]); 
     }
   }
+
+  removePlanet(planet: Planet) {
+    const index: number = this.planets.indexOf(planet);
+    this.planets.splice(index);     
+}
 
 }

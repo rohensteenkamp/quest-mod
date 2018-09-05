@@ -11,6 +11,7 @@ import { PlanetService } from '../../services/planet.service'
 export class DashboardComponent implements OnInit {
   planets: Planet[];
   //selectedPlanet: Planet;
+  newPlanet: Planet = {} as Planet;
 
   constructor(private planetService: PlanetService) { }
 
@@ -24,8 +25,10 @@ export class DashboardComponent implements OnInit {
   //   this.planetService.selectPlanet(planet);
   // }
 
-  addPlanet(name: string, description: string): void {
-    this.planetService.addPlanet(name, description)
+  addPlanet(newPlanet): void {
+    this.planetService.addPlanet(this.newPlanet)
   }
+
+  //removePlanet()
 
 }

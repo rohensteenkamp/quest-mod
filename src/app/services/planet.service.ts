@@ -34,7 +34,9 @@ constructor() { }
 
   removePlanet(planet: Planet) {
     const index: number = this.planets.indexOf(planet);
-    this.planets.splice(index);     
+    console.log(index);
+    
+    this.planets.splice(index,1);     
 }
 
 }

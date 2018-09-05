@@ -25,10 +25,12 @@ export class DashboardComponent implements OnInit {
   //   this.planetService.selectPlanet(planet);
   // }
 
-  addPlanet(newPlanet): void {
+  addPlanet(): void {
     this.planetService.addPlanet(this.newPlanet)
   }
-
-  //removePlanet()
+ 
+  removePlanet(planetToDelete: Planet): void {
+    this.planetService.removePlanet(planetToDelete);
+  }
 
 }

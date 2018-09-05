@@ -4,5 +4,5 @@
 <button type="button" (click)="addPlanet(newPlanet)">Create</button>
 <h1>Planet Listings</h1>
 <ul>
-  <li *ngFor = "let planet of planets"><strong>{{planet.name}}:</strong> {{planet.description}}</li>
+  <li *ngFor = "let planet of planets"><b>{{planet.name}}:</b> {{planet.description}}<button type="button" (click)="removePlanet(planet)">X</button></li>
 </ul>

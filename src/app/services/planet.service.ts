@@ -1,36 +1,37 @@
 import { Injectable } from '@angular/core';
 import { Planet } from '../models/planet';
 
-import { PLANETS } from '../planets';
-import { BehaviorSubject, Subject } from 'rxjs';
+
+// import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlanetService {
-  planets:BehaviorSubject<Planet[]> = new BehaviorSubject(PLANETS);
-  selectedPlanet: Subject<Planet> = new Subject();
-  //newPlanet: Planet = new Planet();
+  // planets: BehaviorSubject<Planet[]> = new BehaviorSubject(null);
+  // selectedPlanet: Subject<Planet> = new Subject();
+  planets: Planet[] = [
+    { name:'codeez', description: 'learn to code with python' },
+    { name:'checkmate!', description: 'learn to play chess' }
+];
 
 constructor() { }
 
   getPlanets(): Planet[] {
-    return PLANETS;
+    return this.planets; 
   }
 
-  selectPlanet(planet: Planet) {
-    this.selectedPlanet.next(planet);
-  }
+  // selectPlanet(planet: Planet) {
+  //   this.selectedPlanet.next(planet);
+  // }
 
-  /*getSelectedPlanet(): Planet {
-    return this.selectedPlanet;
-  }*/
-
-  addPlanet(planetName: string) {
-    if(planetName) {
+  addPlanet(planetName: string, planetDescription: string) {
+    if(planetName && planetDescription) {
       const newPlanet = new Planet();
       newPlanet.name = planetName;
-      this.planets.next([newPlanet, ...this.planets.getValue()]);//.push(this.newPlanet);
+      newPlanet.description = planetDescription;
+      this.planets.push(newPlanet);
+      // this.planets.next([newPlanet, ...this.planets.getValue()]); 
     }
   }
 

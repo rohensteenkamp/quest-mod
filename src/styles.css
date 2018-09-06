@@ -1,5 +1,2 @@
-.list {
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    margin-left: 15px;
-    margin-right: 15px;
-}
+@import '~bootstrap/dist/css/bootstrap.min.css';
+

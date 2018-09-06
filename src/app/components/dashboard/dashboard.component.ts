@@ -16,8 +16,6 @@ export class DashboardComponent implements OnInit {
   constructor(private planetService: PlanetService) { }
 
   ngOnInit() {
-    //this.planetService.planets.subscribe(planets => this.setPlanets(planets))
-    //this.planetService.selectedPlanet.subscribe(selectedPlanet => this.selectedPlanet = selectedPlanet)
     this.planets = this.planetService.getPlanets();
   }
 
@@ -27,6 +25,7 @@ export class DashboardComponent implements OnInit {
 
   addPlanet(): void {
     this.planetService.addPlanet(this.newPlanet)
+    this.newPlanet = {} as Planet;
   }
  
   removePlanet(planetToDelete: Planet): void {

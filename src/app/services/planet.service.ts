@@ -2,13 +2,10 @@ import { Injectable } from '@angular/core';
 import { Planet } from '../models/planet';
 
 
-// import { BehaviorSubject, Subject } from 'rxjs';
-
 @Injectable({
   providedIn: 'root'
 })
 export class PlanetService {
-  // planets: BehaviorSubject<Planet[]> = new BehaviorSubject(null);
   // selectedPlanet: Subject<Planet> = new Subject();
   planets: Planet[] = [
     { name:'codeez', description: 'learn to code with python' },
@@ -28,7 +25,6 @@ constructor() { }
   addPlanet(planet: Planet) {
     if(planet.name && planet.description) {
       this.planets.push(planet);
-      // this.planets.next([newPlanet, ...this.planets.getValue()]); 
     }
   }
 

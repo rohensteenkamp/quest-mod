@@ -3,8 +3,13 @@
   <div class="row justify-content-center align-items-center">
     <div class="col-4 justify-content-center align-items-center text-center">
       <h1>Planet Listings</h1>
-      <ul>
-        <li class="my-1" *ngFor = "let planet of planets"><b>{{planet.name}}:</b> {{planet.description}}<button type="button" class="ml-2" (click)="removePlanet(planet)">X</button></li>
+      <ul class="list-group">
+        <li class="my-1 list-group-item list-group-item-action" *ngFor = "let planet of planets">
+          <b>{{planet.name}}</b> 
+          <br>
+          <p>{{planet.description}}</p>
+          <button type="button" class="ml-2 btn btn-danger btn-pill" (click)="removePlanet(planet)">X</button>
+        </li>
       </ul>
   </div>
 </div>
@@ -12,9 +17,10 @@
 <div class="row justify-content-center align-items-center">
   <div class="col-4 justify-content-center align-items-center text-center">
 <h1>Create a Planet</h1>
-  <input [(ngModel)]="newPlanet.name" type="text" placeholder="new name...">
-  <input [(ngModel)]="newPlanet.description" type="text" placeholder="new desription here...">
- <button type="button" (click)="addPlanet(newPlanet)">Create</button>
+  <input class="my-1" [(ngModel)]="newPlanet.name" type="text" placeholder="new name...">
+  <input class="my-1" [(ngModel)]="newPlanet.description" type="text" placeholder="new desription here...">
+  <br>
+ <button class="btn btn-success btn-pill" type="button" (click)="addPlanet(newPlanet)">Create</button>
 
   </div>
 </div>

@@ -1,12 +1,9 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
 .middle {
-    position: absolute;
+    min-height: 100%;
+    min-height: 100vh;
 
-    top: 20%;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
-    margin: auto;
+    display: flex;
+    align-items: center;
 }

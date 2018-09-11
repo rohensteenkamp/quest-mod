@@ -1,15 +1,15 @@
-<div class="middle">
+<div id="intro" class="middle">
 <div class="container">
   
   <div class="row justify-content-center align-items-center">
     <div class="col-4 text-center">
-      <h1>Planet Listings</h1>
+      <h1 class="header text-warning">Planet Listings</h1>
       <ul class="list-group">
         <li class="my-1 list-group-item list-group-item-action" *ngFor = "let planet of planets">
           <b>{{planet.name}}</b> 
           <br>
           <p>{{planet.description}}</p>
-          <button type="button" class="ml-2 btn btn-danger btn-pill" (click)="removePlanet(planet)">X</button>
+          <button type="button" class="ml-2 btn btn-outline-danger btn-pill" (click)="removePlanet(planet)">X</button>
         </li>
       </ul>
   </div>
@@ -17,7 +17,7 @@
   
 <div class="row justify-content-center align-items-center">
   <div class="col-4 text-center">
-<h1>Create a Planet</h1>
+<h1 class="header text-warning">Create a Planet</h1>
   <input class="form-control my-1" [(ngModel)]="newPlanet.name" type="text" placeholder="new name...">
   <input class="form-control my-1" [(ngModel)]="newPlanet.description" type="text" placeholder="new desription here..." (keyup.enter)="addPlanet(newPLanet)">
   <br>

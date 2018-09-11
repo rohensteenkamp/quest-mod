@@ -16,20 +16,20 @@ export class DashboardComponent implements OnInit {
   constructor(private planetService: PlanetService) { }
 
   ngOnInit() {
-    this.planets = this.planetService.getPlanets();
+    this.planetService.planets$.subscribe(value => this.planets = value);
   }
 
   // selectPlanet(planet: Planet){
   //   this.planetService.selectPlanet(planet);
   // }
 
-  addPlanet(): void {
-    this.planetService.addPlanet(this.newPlanet)
-    this.newPlanet = {} as Planet;
-  }
+  // addPlanet(): void {
+  //   this.planetService.addPlanet(this.newPlanet)
+  //   this.newPlanet = {} as Planet;
+  // }
  
-  removePlanet(planetToDelete: Planet): void {
-    this.planetService.removePlanet(planetToDelete);
-  }
+  // removePlanet(planetToDelete: Planet): void {
+  //   this.planetService.removePlanet(planetToDelete);
+  // }
 
 }

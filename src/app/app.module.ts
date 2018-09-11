@@ -8,6 +8,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RoutingModule } from './/routing.module';
 import { PlanetDetailComponent } from './components/planet-detail/planet-detail.component';
 
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +21,9 @@ import { PlanetDetailComponent } from './components/planet-detail/planet-detail.
   imports: [
     BrowserModule,
     RoutingModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

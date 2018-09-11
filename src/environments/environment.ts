@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyAviY55f2EpzBUw8NhPqnUhDmIANzvKI0Y",
+    authDomain: "quest-mod.firebaseapp.com",
+    databaseURL: "https://quest-mod.firebaseio.com",
+    projectId: "quest-mod",
+    storageBucket: "quest-mod.appspot.com",
+    messagingSenderId: "197659730219"
+  }
 };
 
 /*

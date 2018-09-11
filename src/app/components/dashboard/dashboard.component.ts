@@ -28,8 +28,8 @@ export class DashboardComponent implements OnInit {
     this.newPlanet = {} as Planet;
   }
  
-  // removePlanet(planetToDelete: Planet): void {
-  //   this.planetService.removePlanet(planetToDelete);
-  // }
+  removePlanet(planetToDelete: Planet): void {
+    this.planetService.removePlanet(planetToDelete);
+  }
 
 }

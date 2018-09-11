@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Planet } from '../models/planet';
 
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 export class PlanetService {
   planets$: Observable<any[]>;
   planetCollection: AngularFirestoreCollection<Planet>;
+  planetDoc: AngularFirestoreDocument<Planet>;
 
 constructor(db: AngularFirestore) {
   this.planetCollection = db.collection<Planet>("planets");
@@ -25,12 +26,13 @@ constructor(db: AngularFirestore) {
   // }
 
   addPlanet(planet: Planet) {
-   this.planetCollection.add(planet);
-    }
+    const id = planet.name;
+    this.planetCollection.doc(id).set(planet);
   }
 
-  // removePlanet(planet: Planet) {
-  //   const index: number = this.planets.indexOf(planet);
-  //   this.planets.splice(index,1);    
-  // }
+  removePlanet(planet: Planet) {
+    const id = planet.name;
+    this.planetCollection.doc(id).delete();
+  }
+}
 

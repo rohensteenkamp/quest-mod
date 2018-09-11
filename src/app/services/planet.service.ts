@@ -10,7 +10,6 @@ import { Observable } from 'rxjs';
 export class PlanetService {
   planets$: Observable<any[]>;
   planetCollection: AngularFirestoreCollection<Planet>;
-  planetDoc: AngularFirestoreDocument<Planet>;
 
 constructor(db: AngularFirestore) {
   this.planetCollection = db.collection<Planet>("planets");

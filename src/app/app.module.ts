@@ -4,12 +4,12 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-
 import { RoutingModule } from './/routing.module';
-import { PlanetDetailComponent } from './components/planet-detail/planet-detail.component';
 
+import { PlanetDetailComponent } from './components/planet-detail/planet-detail.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
+
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
@@ -17,6 +17,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     AppComponent,
     DashboardComponent,
     PlanetDetailComponent
+    
   ],
   imports: [
     BrowserModule,

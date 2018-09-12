@@ -9,7 +9,7 @@
           <b>{{planet.name}}</b> 
           <br>
           <p>{{planet.description}}</p>
-          <button type="button" class="ml-2 btn btn-outline-danger btn-pill" (click)="removePlanet(planet)">X</button>
+          <button type="button" class="ml-2 btn btn-outline-danger btn-pill" data-toggle="alert" target="#showAlert" (click)="removePlanet(planet)">X</button>
         </li>
       </ul>
   </div>
@@ -19,11 +19,17 @@
   <div class="col-4 text-center">
 <h1 class="header text-warning">Create a Planet</h1>
   <input class="form-control my-1" [(ngModel)]="newPlanet.name" type="text" placeholder="new name...">
-  <input class="form-control my-1" [(ngModel)]="newPlanet.description" type="text" placeholder="new desription here..." (keyup.enter)="addPlanet(newPLanet)">
+  <input class="form-control" [(ngModel)]="newPlanet.description" type="text" placeholder="new desription here..." (keyup.enter)="addPlanet(newPLanet)">
   <br>
- <button class="btn btn-success btn-pill" type="button" (click)="addPlanet(newPlanet)">Create</button>
+ <button class="btn btn-outline-success btn-pill" type="button" (click)="addPlanet(newPlanet)">Create</button>
   </div>
 </div>
+
+  <div id="showAlert" class="alert alert-success text-center my-3" role="alert">
+    Are you sure you want to remove this?!
+    <button type="button" class="ml-2 btn btn-outline-success btn-pill">Remove</button>
+    <button type="button" class="ml-2 btn btn-outline-danger btn-pill">Cancel</button>
+  </div>
 
 </div>
 </div>

@@ -32,4 +32,8 @@ export class DashboardComponent implements OnInit {
     this.planetService.removePlanet(planetToDelete);
   }
 
+  showAlert() {
+    alert;
+  }
+
 }

@@ -9,11 +9,13 @@
           <b>{{planet.name}}</b> 
           <br>
           <p>{{planet.description}}</p>
-          <button type="button" class="ml-2 btn btn-outline-danger btn-pill" (click)="showOrHideDetails(alert)">X</button>
-          <div class="alert alert-danger mt-3">
+          <button type="button" class="ml-2 btn btn-outline-danger btn-pill" data-toggle="alert" data-target="#alertprim">
+            X
+          </button>
+          <div class="alert alert-danger mt-3" id="alertprim">
             <strong>Are you sure you want to remove..?</strong>
             <button type="button" class="ml-2 btn btn-outline-success btn-pill" (click)="removePlanet(planet)">Remove</button>
-            <button type="button" class="ml-2 btn btn-outline-danger btn-pill" (click)="close()">Cancel</button>
+            <button type="button" class="ml-2 btn btn-outline-danger btn-pill">Cancel</button>
           </div>
         </li>
       </ul>
@@ -29,12 +31,6 @@
  <button class="btn btn-outline-success btn-pill" type="button" (click)="addPlanet(newPlanet)">Create</button>
   </div>
 </div>
-
-  <!-- <div class="alert alert-success text-center my-3" role="alert">
-    Are you sure you want to remove this?!
-    <button type="button" class="ml-2 btn btn-outline-success btn-pill">Remove</button>
-    <button type="button" class="ml-2 btn btn-outline-danger btn-pill">Cancel</button>
-  </div> -->
 
 </div>
 </div>

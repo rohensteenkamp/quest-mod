@@ -9,13 +9,13 @@
           <b>{{planet.name}}</b> 
           <br>
           <p>{{planet.description}}</p>
-          <button type="button" class="ml-2 btn btn-outline-danger btn-pill" data-toggle="alert" data-target="#alertprim">
+          <button type="button" class="ml-2 btn btn-outline-danger btn-pill" (click)="this.isAlertVisible = true">
             X
           </button>
-          <div class="alert alert-danger mt-3" id="alertprim">
+          <div class="alert alert-danger mt-3" *ngIf="this.isAlertVisible">
             <strong>Are you sure you want to remove..?</strong>
             <button type="button" class="ml-2 btn btn-outline-success btn-pill" (click)="removePlanet(planet)">Remove</button>
-            <button type="button" class="ml-2 btn btn-outline-danger btn-pill">Cancel</button>
+            <button type="button" class="ml-2 btn btn-outline-danger btn-pill" (click)="this.isAlertVisible = false">Cancel</button>
           </div>
         </li>
       </ul>

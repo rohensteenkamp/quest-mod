@@ -27,6 +27,7 @@ export class DashboardComponent implements OnInit {
  
   removePlanet(planetToDelete: Planet): void {
     this.planetService.removePlanet(planetToDelete);
+    this.selectedIndex = null;
   }
 
   selectPlanet(planetToEdit: Planet): void {

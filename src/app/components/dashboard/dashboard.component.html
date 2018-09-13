@@ -12,7 +12,9 @@
           <button type="button" class="btn btn-outline-danger btn-pill" (click)="this.isAlertVisible = true; this.selectedIndex = i">
             X
           </button>
-          
+          <button type="button" class="btn btn-outline-primary btn-pill ml-1" 
+            (click)="this.isEditVisible = true; selectPlanet(planet)">Edit
+          </button>
           <div class="alert alert-danger mt-3" *ngIf="this.isAlertVisible && i == this.selectedIndex">
             <strong>Are you sure you want to remove..?</strong>
             <button type="button" class="ml-2 btn btn-outline-success btn-pill" (click)="removePlanet(planet)">Remove</button>
@@ -33,6 +35,16 @@
  <button class="btn btn-outline-success btn-pill" type="button" (click)="addPlanet(newPlanet)">Create</button>
   </div>
 </div>
+
+<div class="row justify-content-center align-items-center">
+    <div *ngIf="this.isEditVisible" class="col-4 text-center">
+  <h1 class="header text-warning">Edit a planet</h1>
+    <label class="text-white">name: {{selectedPlanet.name}}</label>
+    <input #editedPlanet class="form-control" type="text" value="{{selectedPlanet.description}}" (keyup.enter)="selectedPlanet.description = editedPlanet.value; editPlanet(selectedPlanet)">
+    <br>
+   <button class="btn btn-outline-success btn-pill" type="button" (click)="selectedPlanet.description = editedPlanet.value; editPlanet(selectedPlanet); this.isEditVisible = false">Save</button>
+    </div>
+  </div>
 
 </div>
 </div>

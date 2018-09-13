@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 export class PlanetService {
   planets$: Observable<any[]>;
   planetCollection: AngularFirestoreCollection<Planet>;
+  // planetDoc: AngularFirestoreDocument; 
 
 constructor(db: AngularFirestore) {
   this.planetCollection = db.collection<Planet>("planets");
@@ -20,10 +21,6 @@ constructor(db: AngularFirestore) {
     return null;
   }
 
-  // selectPlanet(planet: Planet) {
-  //    this.selectedPlanet.next(planet);
-  // }
-
   addPlanet(planet: Planet) {
     const id = planet.name;
     this.planetCollection.doc(id).set(planet);
@@ -32,6 +29,12 @@ constructor(db: AngularFirestore) {
   removePlanet(planet: Planet) {
     const id = planet.name;
     this.planetCollection.doc(id).delete();
+  }
+
+  editPlanet(planet: Planet) {
+    const id = planet.name;
+    this.planetCollection.doc(id).update(planet);
+    console.log(planet);
   }
 }
 

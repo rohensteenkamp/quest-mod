@@ -10,9 +10,8 @@ import { PlanetService } from '../../services/planet.service'
 })
 export class DashboardComponent implements OnInit {
   planets: Planet[];
-  //selectedPlanet: Planet;
   newPlanet: Planet = {} as Planet;
-
+  selectedPlanet: Planet = {} as Planet;
   selectedIndex: number;
 
   constructor(private planetService: PlanetService) { }
@@ -21,10 +20,6 @@ export class DashboardComponent implements OnInit {
     this.planetService.planets$.subscribe(value => this.planets = value);
   }
 
-  // selectPlanet(planet: Planet){
-  //   this.planetService.selectPlanet(planet);
-  // }
-
   addPlanet(): void {
     this.planetService.addPlanet(this.newPlanet)
     this.newPlanet = {} as Planet;
@@ -32,6 +27,15 @@ export class DashboardComponent implements OnInit {
  
   removePlanet(planetToDelete: Planet): void {
     this.planetService.removePlanet(planetToDelete);
+  }
+
+  selectPlanet(planetToEdit: Planet): void {
+    this.selectedPlanet = planetToEdit;
+  }
+
+  editPlanet(): void {
+    this.planetService.editPlanet(this.selectedPlanet);
+    this.selectedPlanet = {} as Planet;
   }
 
 }

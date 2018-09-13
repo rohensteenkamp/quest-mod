@@ -5,18 +5,20 @@
     <div class="col-4 text-center">
       <h1 class="header text-warning">Planet Listings</h1>
       <ul class="list-group">
-        <li class="my-1 list-group-item list-group-item-action" *ngFor = "let planet of planets">
+        <li class="my-1 list-group-item list-group-item-action" *ngFor = "let planet of planets; let i = index">
           <b>{{planet.name}}</b> 
           <br>
           <p>{{planet.description}}</p>
-          <button type="button" class="ml-2 btn btn-outline-danger btn-pill" (click)="this.isAlertVisible = true">
+          <button type="button" class="btn btn-outline-danger btn-pill" (click)="this.isAlertVisible = true; this.selectedIndex = i">
             X
           </button>
-          <div class="alert alert-danger mt-3" *ngIf="this.isAlertVisible">
+          
+          <div class="alert alert-danger mt-3" *ngIf="this.isAlertVisible && i == this.selectedIndex">
             <strong>Are you sure you want to remove..?</strong>
             <button type="button" class="ml-2 btn btn-outline-success btn-pill" (click)="removePlanet(planet)">Remove</button>
             <button type="button" class="ml-2 btn btn-outline-danger btn-pill" (click)="this.isAlertVisible = false">Cancel</button>
           </div>
+        
         </li>
       </ul>
   </div>

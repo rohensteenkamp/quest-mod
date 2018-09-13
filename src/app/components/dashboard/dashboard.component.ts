@@ -13,10 +13,17 @@ export class DashboardComponent implements OnInit {
   //selectedPlanet: Planet;
   newPlanet: Planet = {} as Planet;
 
+  private isAlertVisible = false;
+
   constructor(private planetService: PlanetService) { }
 
   ngOnInit() {
     this.planetService.planets$.subscribe(value => this.planets = value);
+  }
+
+  selectedIndex: number;
+  select(index: number) {
+      this.selectedIndex = index;
   }
 
   // selectPlanet(planet: Planet){

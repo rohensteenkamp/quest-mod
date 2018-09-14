@@ -12,7 +12,7 @@ export class DashboardComponent implements OnInit {
   planets: Planet[];
   newPlanet: Planet = {} as Planet;
   selectedPlanet: Planet = {} as Planet;
-  selectedIndex: number;
+  isModalVisible : boolean = false;
 
   constructor(private planetService: PlanetService) { }
 
@@ -25,9 +25,9 @@ export class DashboardComponent implements OnInit {
     this.newPlanet = {} as Planet;
   }
  
-  removePlanet(planetToDelete: Planet): void {
-    this.planetService.removePlanet(planetToDelete);
-    this.selectedIndex = null;
+  removePlanet(): void {
+    this.planetService.removePlanet(this.selectedPlanet);
+    this.selectedPlanet = {} as Planet;
   }
 
   selectPlanet(planetToEdit: Planet): void {
@@ -37,6 +37,16 @@ export class DashboardComponent implements OnInit {
   editPlanet(): void {
     this.planetService.editPlanet(this.selectedPlanet);
     this.selectedPlanet = {} as Planet;
+  }
+
+  openModal(open : boolean) : void {
+    this.isModalVisible = open;
+  }
+
+  closeModal(close: boolean): void {
+    this.isModalVisible = close;
+    this.selectedPlanet = {} as Planet;
+    console.log(this.selectedPlanet);
   }
 
 }

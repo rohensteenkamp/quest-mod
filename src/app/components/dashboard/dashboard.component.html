@@ -1,50 +1,52 @@
 <div id="intro" class="middle">
-<div class="container">
+  <div class="container">
   
-  <div class="row justify-content-center align-items-center">
-    <div class="col-4 text-center">
-      <h1 class="header text-warning">Planet Listings</h1>
-      <ul class="list-group">
-        <li class="my-1 list-group-item list-group-item-action" *ngFor = "let planet of planets; let i = index">
-          <b>{{planet.name}}</b> 
-          <br>
-          <p>{{planet.description}}</p>
-          <button type="button" class="btn btn-outline-danger btn-pill" (click)="this.isAlertVisible = true; this.selectedIndex = i">
-            X
-          </button>
-          <button type="button" class="btn btn-outline-primary btn-pill ml-1" 
-            (click)="this.isEditVisible = true; selectPlanet(planet)">Edit
-          </button>
-          <div class="alert alert-danger mt-3" *ngIf="this.isAlertVisible && i == this.selectedIndex">
-            <strong>Are you sure you want to remove..?</strong>
-            <button type="button" class="ml-2 btn btn-outline-success btn-pill" (click)="removePlanet(planet)">Remove</button>
-            <button type="button" class="ml-2 btn btn-outline-danger btn-pill" (click)="this.isAlertVisible = false">Cancel</button>
-          </div>
-        
-        </li>
-      </ul>
-  </div>
-</div>
-  
-<div class="row justify-content-center align-items-center">
-  <div class="col-4 text-center">
-<h1 class="header text-warning">Create a Planet</h1>
-  <input class="form-control my-1" [(ngModel)]="newPlanet.name" type="text" placeholder="new name...">
-  <input class="form-control" [(ngModel)]="newPlanet.description" type="text" placeholder="new desription here..." (keyup.enter)="addPlanet(newPLanet)">
-  <br>
- <button class="btn btn-outline-success btn-pill" type="button" (click)="addPlanet(newPlanet)">Create</button>
-  </div>
-</div>
-
-<div class="row justify-content-center align-items-center">
-    <div *ngIf="this.isEditVisible" class="col-4 text-center">
-  <h1 class="header text-warning">Edit a planet</h1>
-    <label class="text-white">name: {{selectedPlanet.name}}</label>
-    <input #editedPlanet class="form-control" type="text" value="{{selectedPlanet.description}}" (keyup.enter)="selectedPlanet.description = editedPlanet.value; editPlanet(selectedPlanet); this.isEditVisible = false">
-    <br>
-   <button class="btn btn-outline-success btn-pill" type="button" (click)="selectedPlanet.description = editedPlanet.value; editPlanet(selectedPlanet); this.isEditVisible = false">Save</button>
+    <div class="row justify-content-center align-items-center">
+      <div class="col-4 text-center">
+        <h1 class="header text-warning">Planet Listings</h1>
+        <ul class="list-group">
+          <li class="my-1 list-group-item list-group-item-action" *ngFor = "let planet of planets">
+            <b>{{planet.name}}</b> 
+            <br>
+            <p>{{planet.description}}</p>
+            <button type="button" class="btn btn-outline-danger btn-pill" (click)="openModal(true); selectPlanet(planet)">X</button>
+            <button type="button" class="btn btn-outline-primary btn-pill ml-1" (click)="this.isEditVisible = true; selectPlanet(planet)">Edit</button>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
+    
+    <div class="row justify-content-center align-items-center">
+      <div class="col-4 text-center">
+        <h1 class="header text-warning">Create a Planet</h1>
+        <input class="form-control my-1" [(ngModel)]="newPlanet.name" type="text" placeholder="new name...">
+        <input class="form-control" [(ngModel)]="newPlanet.description" type="text" placeholder="new desription..." (keyup.enter)="addPlanet(newPLanet)">
+        <br>
+        <button class="btn btn-outline-success btn-pill" type="button" (click)="addPlanet(newPlanet)">Create</button>
+      </div>
+    </div>
 
-</div>
+    <div class="row justify-content-center align-items-center">
+      <div *ngIf="this.isEditVisible" class="col-4 text-center">
+        <h1 class="header text-warning">Edit a planet</h1>
+        <label class="text-white">name: {{selectedPlanet.name}}</label>
+        <input #editedPlanet class="form-control" type="text" value="{{selectedPlanet.description}}" (keyup.enter)="selectedPlanet.description = editedPlanet.value; editPlanet(selectedPlanet); this.isEditVisible = false">
+        <br>
+        <button class="btn btn-outline-success btn-pill" type="button" (click)="selectedPlanet.description = editedPlanet.value; editPlanet(selectedPlanet); this.isEditVisible = false">Save</button>
+      </div>
+    </div>
+
+    <div id="confirmModal" class="modal fade" role="dialog"  [ngStyle]="{'display': isModalVisible ? 'block' : 'none', 'opacity': 1}">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content text-center">
+          <div class="modal-body">
+            <p><strong>Are you sure you want to remove..?</strong></p>
+            <button type="button" class="ml-2 btn btn-outline-success btn-pill" (click)="removePlanet(); closeModal(false)">Remove</button>
+            <button type="button" class="ml-2 btn btn-outline-danger btn-pill" (click)="closeModal(false)">Cancel</button>
+          </div>
+        </div>  
+      </div>
+    </div>    
+
+  </div>
 </div>

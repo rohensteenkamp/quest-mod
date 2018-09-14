@@ -1,12 +1,5 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
-html,
-body,
-header,
-#intro {
-    height: 100%;
-}
-
 #intro {
     background: url("https://wallpaper-house.com/data/out/9/wallpaper2you_347831.jpg")no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -18,7 +11,8 @@ header,
 .middle {
     min-height: 100%;
     min-height: 100vh;
-
     display: flex;
+    overflow-y: auto;
     align-items: center;
+    padding: 20px;
 }

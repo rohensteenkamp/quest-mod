@@ -36,7 +36,7 @@
       </div>
     </div>
 
-    <div id="confirmModal" class="modal fade" role="dialog"  [ngStyle]="{'display': isModalVisible ? 'block' : 'none', 'opacity': 1}">
+    <div id="confirmModal" class="modal" role="dialog"  [ngStyle]="{'display': isModalVisible ? 'block' : 'none', 'opacity': 1}" (click)="closeModal(false)">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content text-center">
           <div class="modal-body">

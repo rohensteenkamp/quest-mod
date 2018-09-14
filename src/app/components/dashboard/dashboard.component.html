@@ -40,7 +40,7 @@
     <div *ngIf="this.isEditVisible" class="col-4 text-center">
   <h1 class="header text-warning">Edit a planet</h1>
     <label class="text-white">name: {{selectedPlanet.name}}</label>
-    <input #editedPlanet class="form-control" type="text" value="{{selectedPlanet.description}}" (keyup.enter)="selectedPlanet.description = editedPlanet.value; editPlanet(selectedPlanet)">
+    <input #editedPlanet class="form-control" type="text" value="{{selectedPlanet.description}}" (keyup.enter)="selectedPlanet.description = editedPlanet.value; editPlanet(selectedPlanet); this.isEditVisible = false">
     <br>
    <button class="btn btn-outline-success btn-pill" type="button" (click)="selectedPlanet.description = editedPlanet.value; editPlanet(selectedPlanet); this.isEditVisible = false">Save</button>
     </div>

@@ -1,8 +1,11 @@
 <div id="intro" class="middle">
   <div class="container">
-  
+    
     <div class="row justify-content-center align-items-center">
-      <div class="col-4 text-center">
+    <div class="col-6">
+    <div class="card bg-info">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-10 text-center">
         <h1 class="header text-warning">Planet Listings</h1>
         <ul class="list-group">
           <li class="my-1 list-group-item list-group-item-action" *ngFor = "let planet of planets">
@@ -17,24 +20,27 @@
     </div>
     
     <div class="row justify-content-center align-items-center">
-      <div class="col-4 text-center">
+      <div *ngIf="!this.isEditVisible" class="col-10 text-center">
         <h1 class="header text-warning">Create a Planet</h1>
         <input class="form-control my-1" [(ngModel)]="newPlanet.name" type="text" placeholder="new name...">
         <input class="form-control" [(ngModel)]="newPlanet.description" type="text" placeholder="new desription..." (keyup.enter)="addPlanet(newPLanet)">
         <br>
-        <button class="btn btn-outline-success btn-pill" type="button" (click)="addPlanet(newPlanet)">Create</button>
+        <button class="btn btn-success btn-pill mb-2" type="button" (click)="addPlanet(newPlanet)">Create</button>
       </div>
     </div>
 
     <div class="row justify-content-center align-items-center">
-      <div *ngIf="this.isEditVisible" class="col-4 text-center">
+      <div *ngIf="this.isEditVisible" class="col-10 text-center">
         <h1 class="header text-warning">Edit a planet</h1>
         <label class="text-white">name: {{selectedPlanet.name}}</label>
         <input #editedPlanet class="form-control" type="text" value="{{selectedPlanet.description}}" (keyup.enter)="selectedPlanet.description = editedPlanet.value; editPlanet(selectedPlanet); this.isEditVisible = false">
         <br>
-        <button class="btn btn-outline-success btn-pill" type="button" (click)="selectedPlanet.description = editedPlanet.value; editPlanet(selectedPlanet); this.isEditVisible = false">Save</button>
+        <button class="btn btn-success btn-pill mb-2" type="button" (click)="selectedPlanet.description = editedPlanet.value; editPlanet(selectedPlanet); this.isEditVisible = false">Save</button>
       </div>
     </div>
+  </div>
+</div>
+</div>
 
     <div id="confirmModal" class="modal" role="dialog"  [ngStyle]="{'display': isModalVisible ? 'block' : 'none', 'opacity': 1}" (click)="closeModal(false)">
       <div class="modal-dialog modal-dialog-centered" role="document">

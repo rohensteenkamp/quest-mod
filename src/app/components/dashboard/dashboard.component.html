@@ -32,10 +32,12 @@
     <div class="row justify-content-center align-items-center">
       <div *ngIf="this.isEditVisible" class="col-10 text-center">
         <h1 class="header text-warning">Edit a planet</h1>
-        <label class="text-white">name: {{selectedPlanet.name}}</label>
-        <input #editedPlanet class="form-control" type="text" value="{{selectedPlanet.description}}" (keyup.enter)="selectedPlanet.description = editedPlanet.value; editPlanet(selectedPlanet); this.isEditVisible = false">
+        <input #editedPlanetName class="form-control" type="text" value="{{selectedPlanet.name}}">
+        <input #editedPlanetDescription class="form-control" type="text" value="{{selectedPlanet.description}}">
         <br>
-        <button class="btn btn-success btn-pill mb-2" type="button" (click)="selectedPlanet.description = editedPlanet.value; editPlanet(selectedPlanet); this.isEditVisible = false">Save</button>
+        <button class="btn btn-success btn-pill mb-2" type="button" (click)="selectedPlanet.name = editedPlanetName.value; 
+            selectedPlanet.description = editedPlanetDescription.value;
+              editPlanet(selectedPlanet); this.isEditVisible = false">Save</button>
       </div>
     </div>
   </div>

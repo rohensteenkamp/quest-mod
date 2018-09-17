@@ -9,7 +9,15 @@ export class Planet {
         key: string;
         name: string; 
         description: string;
+    
+    toData(): PlanetData {
+        return {
+            name: this.name,
+            description: this. description
+        } as PlanetData;    
     }
+
+}
 
 export class PlanetData {
     name: string;

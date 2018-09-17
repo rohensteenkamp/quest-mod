@@ -27,14 +27,11 @@ constructor(db: AngularFirestore) {
   }
 
   removePlanet(planet: Planet) {
-    
-
     this.planetCollection.doc(planet.key).delete();
   }
 
   editPlanet(planet: Planet) {
-    
-    this.planetCollection.doc(planet.key).update(planet);
+    this.planetCollection.doc(planet.key).update(planet.toData());
   }
 }
 

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Planet } from '../../models/planet';
 
 import { PlanetService } from '../../services/planet.service'
+import { Store } from '@ngrx/store';
+import { AppState } from '../../store/app-state';
+import * as actions from '../../store/actions';
 
 @Component({
   selector: 'app-planet',
@@ -14,12 +17,15 @@ export class DashboardComponent implements OnInit {
   selectedPlanet: Planet = {} as Planet;
   isModalVisible : boolean = false;
 
-  constructor(private planetService: PlanetService) { }
+  constructor(private planetService: PlanetService, private store: Store<AppState>) { }
 
   ngOnInit() {
-    this.planetService.planets$.subscribe(value => {
-      this.planets = value;
-    });
+    this.store.dispatch(new actions.GetPlanets());
+
+    this.store.select('planet').subscribe(planetState =>{
+      this.planets = planetState.planets;
+    })
+   
   }
 
   addPlanet(): void {

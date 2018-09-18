@@ -11,6 +11,11 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import * as reducers from './store/reducers';
+import * as effects from './store/effects';
+import { StoreDevtoolsModule} from '@ngrx/store-devtools'
 
 @NgModule({
   declarations: [
@@ -24,7 +29,10 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     RoutingModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    StoreModule.forRoot({planet: reducers.planetReducer}),
+    EffectsModule.forRoot([effects.PlanetEffects]),
+    StoreDevtoolsModule.instrument()
   ],
   providers: [],
   bootstrap: [AppComponent]

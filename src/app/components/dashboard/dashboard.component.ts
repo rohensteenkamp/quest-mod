@@ -19,7 +19,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.planetService.planets$.subscribe(value => {
       this.planets = value;
-      console.log(value);
     });
   }
 
@@ -49,7 +48,6 @@ export class DashboardComponent implements OnInit {
   closeModal(close: boolean): void {
     this.isModalVisible = close;
     this.selectedPlanet = {} as Planet;
-    console.log(this.selectedPlanet);
   }
 
 }

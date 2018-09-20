@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Planet } from '../../models/planet';
-
 import { PlanetService } from '../../services/planet.service'
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app-state';
@@ -20,7 +19,7 @@ export class DashboardComponent implements OnInit {
   constructor(private planetService: PlanetService, private store: Store<AppState>) { }
 
   ngOnInit() {
-    this.store.dispatch(new actions.GetPlanets());
+    this.store.dispatch(new actions.GetPlanets);
 
     this.store.select('planet').subscribe(planetState =>{
       this.planets = planetState.planets;

@@ -11,8 +11,6 @@ export class PlanetService {
   planets$: Observable<any[]>;
   planetCollection: AngularFirestoreCollection<Planet>;
 
-  collectionRef: AngularFirestoreCollection<Planet>;
-
 constructor(db: AngularFirestore) {
   this.planetCollection = db.collection<Planet>("planets");
   this.planets$ = db.collection("planets").snapshotChanges().pipe(

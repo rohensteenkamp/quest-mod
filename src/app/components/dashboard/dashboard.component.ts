@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Planet } from '../../models/planet';
-import { PlanetService } from '../../services/planet.service'
+import { PlanetService } from '../../services/planet/planet.service'
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app-state';
 import * as actions from '../../store/actions';
+import { GlobalService } from '../../services/global/global.service';
 
 @Component({
   selector: 'app-planet',
@@ -13,10 +14,9 @@ import * as actions from '../../store/actions';
 export class DashboardComponent implements OnInit {
   planets: Planet[];
   newPlanet: Planet = {} as Planet;
-  selectedPlanet: Planet = {} as Planet;
   isModalVisible : boolean = false;
 
-  constructor(private planetService: PlanetService, private store: Store<AppState>) { }
+  constructor(private planetService: PlanetService, private store: Store<AppState>, private globalService: GlobalService) { }
 
   ngOnInit() {
     this.store.dispatch(new actions.GetPlanets);
@@ -33,17 +33,19 @@ export class DashboardComponent implements OnInit {
   }
  
   removePlanet(): void {
-    this.planetService.removePlanet(this.selectedPlanet);
-    this.selectedPlanet = {} as Planet;
+    this.planetService.removePlanet(this.globalService.selectedPlanet);
+    this.globalService.selectedPlanet = {} as Planet;
   }
 
-  selectPlanet(planetToEdit: Planet): void {
-    this.selectedPlanet = planetToEdit;
+  selectPlanet(planetSelected: Planet): void {
+    this.globalService.selectPlanet(planetSelected);
   }
 
   editPlanet(): void {
-    this.planetService.editPlanet(this.selectedPlanet);
-    this.selectedPlanet = {} as Planet;
+    console.log(this.globalService.selectedPlanet );
+    
+    this.planetService.editPlanet(this.globalService.selectedPlanet);
+    this.globalService.selectedPlanet = {} as Planet;
   }
 
   openModal(open : boolean) : void {
@@ -52,7 +54,7 @@ export class DashboardComponent implements OnInit {
 
   closeModal(close: boolean): void {
     this.isModalVisible = close;
-    this.selectedPlanet = {} as Planet;
+    this.globalService.selectedPlanet = {} as Planet;
   }
 
 }

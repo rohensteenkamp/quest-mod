@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Planet, PlanetData } from '../models/planet';
+import { Planet, PlanetData } from '../../models/planet';
 import { map } from 'rxjs/operators';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
 @Injectable({

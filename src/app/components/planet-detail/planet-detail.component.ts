@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Quest } from '../../models/quest';
 
 @Component({
   selector: 'app-planet-detail',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlanetDetailComponent implements OnInit {
 
+  
   constructor() { }
 
   ngOnInit() {

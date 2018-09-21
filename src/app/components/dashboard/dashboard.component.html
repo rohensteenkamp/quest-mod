@@ -9,9 +9,11 @@
         <h1 class="header text-white">Planet Listings</h1>
         <ul class="list-group">
           <li class="my-1 list-group-item list-group-item-action" *ngFor = "let planet of planets">
-            <b>{{planet.name}}</b> 
-            <br>
-            <p>{{planet.description}}</p>
+            <a routerLink="/planet-detail">
+              <b>{{planet.name}}</b> 
+              <br>
+              <p>{{planet.description}}</p>
+            </a>
             <button type="button" class="btn btn-outline-danger btn-pill" (click)="openModal(true); selectPlanet(planet)">X</button>
             <button type="button" class="btn btn-outline-primary btn-pill ml-1" (click)="this.isEditVisible = true; selectPlanet(planet)">Edit</button>
           </li>
@@ -32,11 +34,11 @@
     <div class="row justify-content-center align-items-center">
       <div *ngIf="this.isEditVisible" class="col-10 text-center">
         <h1 class="header text-white">Edit a planet</h1>
-        <input #editedPlanetName class="form-control my-1" type="text" value="{{selectedPlanet.name}}" (keyup.enter)="selectedPlanet.name = editedPlanetName.value; 
-        selectedPlanet.description = editedPlanetDescription.value;
+        <input #editedPlanetName class="form-control my-1" type="text" value="{{globalService.selectedPlanet.name}}" (keyup.enter)="globalService.selectedPlanet.name = editedPlanetName.value; 
+        globalService.selectedPlanet.description = editedPlanetDescription.value;
           editPlanet(selectedPlanet); this.isEditVisible = false">
-        <input #editedPlanetDescription class="form-control" type="text" value="{{selectedPlanet.description}}" (keyup.enter)="selectedPlanet.name = editedPlanetName.value; 
-        selectedPlanet.description = editedPlanetDescription.value;
+        <input #editedPlanetDescription class="form-control" type="text" value="{{globalService.selectedPlanet.description}}" (keyup.enter)="globalService.selectedPlanet.name = editedPlanetName.value; 
+        globalService.selectedPlanet.description = editedPlanetDescription.value;
           editPlanet(selectedPlanet); this.isEditVisible = false">
         <br>
         <button class="btn btn-success btn-pill mb-2" type="button" (click)="selectedPlanet.name = editedPlanetName.value; 

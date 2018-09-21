@@ -16,11 +16,10 @@ export class PlanetDetailComponent implements OnInit {
   constructor(private store: Store<AppState>, private globalService: GlobalService) { }
 
   ngOnInit() {
-    this.store.dispatch(new actions.GetQuests)
-
-    this.store.select("planets/" + this.globalService.selectedPlanet.key + "/quests").subscribe(questState => {
-      console.log(questState);
-      //this.quests = questState.quests;
+    this.store.dispatch(new actions.GetQuests());
+    console.log(' in oninit');
+    this.store.select('quest').subscribe(questState => {
+      this.quests = questState.quests;
     })
   }
 

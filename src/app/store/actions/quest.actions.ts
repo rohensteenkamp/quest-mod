@@ -16,4 +16,4 @@ export class GetQuestSuccess implements Action {
 
 export type QuestActions = 
     | GetQuests
-    | GetQuestSuccess 
+    | GetQuestSuccess;

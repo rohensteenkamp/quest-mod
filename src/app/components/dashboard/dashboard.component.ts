@@ -23,7 +23,6 @@ export class DashboardComponent implements OnInit {
     this.store.dispatch(new actions.GetPlanets);
 
     this.store.select("planet").subscribe(planetState =>{
-      console.log(planetState);
       this.planets = planetState.planets;
     })
    

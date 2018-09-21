@@ -27,8 +27,8 @@ import { StoreDevtoolsModule} from '@ngrx/store-devtools'
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    StoreModule.forRoot({planet: reducers.planetReducer}),
-    EffectsModule.forRoot([effects.PlanetEffects]),
+    StoreModule.forRoot({planet: reducers.planetReducer, quest: reducers.questReducer}),
+    EffectsModule.forRoot([effects.PlanetEffects, effects.QuestEffects]),
     StoreDevtoolsModule.instrument()
   ],
   providers: [],

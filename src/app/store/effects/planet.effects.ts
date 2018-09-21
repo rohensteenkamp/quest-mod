@@ -16,8 +16,6 @@ export class PlanetEffects {
         }),
         mergeMap(actions => actions),
         map(action => {
-            console.log(action);
-            
             if(action.type === "added")
                 return new actions.GetPlanetSuccess(new Planet(action.payload.doc.id, action.payload.doc.data() as PlanetData));
             else if ( action.type === "removed" )

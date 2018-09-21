@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app-state';
 import * as actions from '../../store/actions';
 import { GlobalService } from '../../services/global/global.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-planet',
@@ -16,12 +17,13 @@ export class DashboardComponent implements OnInit {
   newPlanet: Planet = {} as Planet;
   isModalVisible : boolean = false;
 
-  constructor(private planetService: PlanetService, private store: Store<AppState>, private globalService: GlobalService) { }
+  constructor(public router: Router, private planetService: PlanetService, private store: Store<AppState>, private globalService: GlobalService) { }
 
   ngOnInit() {
     this.store.dispatch(new actions.GetPlanets);
 
     this.store.select("planet").subscribe(planetState =>{
+      console.log(planetState);
       this.planets = planetState.planets;
     })
    
@@ -41,9 +43,12 @@ export class DashboardComponent implements OnInit {
     this.globalService.selectPlanet(planetSelected);
   }
 
-  editPlanet(): void {
-    console.log(this.globalService.selectedPlanet );
-    
+  planetClicked(planetClicked: Planet): void {
+    this.globalService.selectPlanet(planetClicked);
+    this.router.navigate(['planet-detail']);
+  }
+
+  editPlanet(): void {   
     this.planetService.editPlanet(this.globalService.selectedPlanet);
     this.globalService.selectedPlanet = {} as Planet;
   }

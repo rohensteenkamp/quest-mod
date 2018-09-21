@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.store.dispatch(new actions.GetPlanets);
 
-    this.store.select('planet').subscribe(planetState =>{
+    this.store.select("planet").subscribe(planetState =>{
       this.planets = planetState.planets;
     })
    

@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Quest, QuestData } from '../../models/quest';
+import { map } from 'rxjs/operators';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
-import { Quest } from '../../models/quest';
+import { GlobalService } from '../global/global.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,12 @@ export class QuestService {
   quests$: Observable<any[]>;
   questCollection: AngularFirestoreCollection<Quest>; 
 
-  constructor(db: AngularFirestore) { 
-    this.questCollection = db.collection<Quest>("quests");
+  constructor(db: AngularFirestore, private globalService: GlobalService) { 
+    this.questCollection = db.collection<Quest>("planets/" + this.globalService.selectedPlanet.key + "/quests");
+    this.quests$ = db.collection("planets/" + this.globalService.selectedPlanet.key + "/quests").snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(action => new Quest(action.payload.doc.id, action.payload.doc.data() as QuestData));
+      })
+    );
   }
 }

@@ -1,7 +1,7 @@
 import * as actions from './../actions';
 import { Planet } from '../../models/planet';
 
-export function planetReducer(state = initialState, action: actions.PlanetActions) {
+export function planetReducer(state = initialPlanetState, action: actions.PlanetActions) {
     const newState = { ...state };
     switch (action.type) {
 
@@ -18,7 +18,7 @@ export function planetReducer(state = initialState, action: actions.PlanetAction
     }
 }
 
-export const initialState = {
+export const initialPlanetState = {
     planets: [],
     loading: false
 }

@@ -25,21 +25,20 @@ export class DashboardComponent implements OnInit {
     this.store.select("planet").subscribe(planetState =>{
       this.planets = planetState.planets;
     })
-   
   }
 
   addPlanet(): void {
     this.planetService.addPlanet(this.newPlanet)
     this.newPlanet = {} as Planet;
   }
+
+  selectPlanet(planetSelected: Planet): void {
+    this.globalService.selectPlanet(planetSelected);
+  }
  
   removePlanet(): void {
     this.planetService.removePlanet(this.globalService.selectedPlanet);
     this.globalService.selectedPlanet = {} as Planet;
-  }
-
-  selectPlanet(planetSelected: Planet): void {
-    this.globalService.selectPlanet(planetSelected);
   }
 
   planetClicked(planetClicked: Planet): void {
@@ -60,5 +59,4 @@ export class DashboardComponent implements OnInit {
     this.isModalVisible = close;
     this.globalService.selectedPlanet = {} as Planet;
   }
-
 }

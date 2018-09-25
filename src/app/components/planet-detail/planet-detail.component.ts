@@ -15,7 +15,7 @@ export class PlanetDetailComponent implements OnInit {
   quests: Quest[];
   newQuest: Quest = {} as Quest;
 
-  constructor(private store: Store<AppState>, private questService: QuestService) { }
+  constructor(private store: Store<AppState>, private questService: QuestService, private globalService: GlobalService) { }
 
   ngOnInit() {
     this.store.dispatch(new actions.GetQuests());
@@ -28,6 +28,10 @@ export class PlanetDetailComponent implements OnInit {
   addQuest(): void {
     this.questService.addQuest(this.newQuest);
     this.newQuest = {} as Quest;
+  }
+
+  selectQuest(questSelected: Quest) : void {
+    this.globalService.selectQuest(questSelected);
   }
 
 }

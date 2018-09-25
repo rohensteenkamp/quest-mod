@@ -14,7 +14,6 @@ export class QuestEffects {
     @Effect()
     GetQuests$ = this.actions$.ofType(actions.GET_QUESTS).pipe(
         switchMap(action => {
-            console.log("action");
             return this.db.collection("planets/" + this.globalService.selectedPlanet.key + "/quests").stateChanges();
         }),
         mergeMap(actions => actions),

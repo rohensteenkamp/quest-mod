@@ -1,27 +1,28 @@
 <div id="intro" class="middle">
-    <div class="container">
-        <div class="row justify-content-center align-items-center">
-            <div class="col-6">
-                <div class="card bg-info">
-                    <div class="row justify-content-center align-items-center">
-                        <div class="col-10 text-center">
-                          <h1 class="header text-white">Quest Listings</h1>
-                          <ul class="list-group">
-                            <li class="my-1 list-group-item list-group-item-action" *ngFor = "let quest of quests">
-                              <a routerLink="/planet-detail">
-                                <b>{{quest.title}}</b> 
-                                <br>
-                                <p>{{quest.description}}</p>
-                                <button type="button" class="btn btn-outline-danger btn-pill" (click)="openModal(true); selectPlanet(planet)">X</button>
-                                <button type="button" class="btn btn-outline-primary btn-pill ml-1" (click)="this.isEditVisible = true; selectPlanet(planet)">Edit</button>
-                              </a>
-                              
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                </div>  
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-6">
+        <div class="card bg-info">
+
+          <div class="row justify-content-center align-items-center">
+            <div class="col-10 text-center">
+              <h1 class="header text-white">Quest Listings</h1>
+              <ul class="list-group">
+                <li class="my-1 list-group-item list-group-item-action" *ngFor = "let quest of quests">
+                  <b>{{quest.title}}</b> 
+                  <br>
+                  <p>{{quest.description}}</p>
+                  <button type="button" class="btn btn-outline-danger btn-pill" (click)="openModal(true); selectPlanet(planet)">X</button>
+                  <button type="button" class="btn btn-outline-primary btn-pill ml-1" (click)="this.isEditVisible = true; selectPlanet(planet)">Edit</button>                      
+                </li>
+              </ul>
             </div>
-        </div>
+          </div>
+
+          
+
+        </div>  
+      </div>
     </div>
+  </div>
 </div>

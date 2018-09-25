@@ -1,5 +1,6 @@
 <div id="intro" class="middle">
   <div class="container">
+
     <div class="row justify-content-center align-items-center">
       <div class="col-6">
         <div class="card bg-info">
@@ -12,8 +13,14 @@
                   <b>{{quest.title}}</b> 
                   <br>
                   <p>{{quest.description}}</p>
-                  <button type="button" class="btn btn-outline-danger btn-pill" (click)="openModal(true); selectPlanet(planet)">X</button>
-                  <button type="button" class="btn btn-outline-primary btn-pill ml-1" (click)="this.isEditVisible = true; selectPlanet(planet)">Edit</button>                      
+                  <button type="button" 
+                    class="btn btn-outline-danger btn-pill" 
+                    (click)="openModal(true); selectPlanet(planet)">X
+                  </button>
+                  <button type="button" 
+                    class="btn btn-outline-primary btn-pill ml-1" 
+                    (click)="this.isEditVisible = true; selectPlanet(planet)">Edit
+                  </button>                      
                 </li>
               </ul>
             </div>
@@ -24,5 +31,6 @@
         </div>  
       </div>
     </div>
+
   </div>
 </div>

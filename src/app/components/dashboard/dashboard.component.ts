@@ -40,7 +40,16 @@ export class DashboardComponent implements OnInit {
     this.planetService.editPlanet(this.globalService.selectedPlanet);
     this.globalService.selectedPlanet = {} as Planet;
   }
- 
+
+  openModal(open: boolean) : void {
+    this.isModalVisible = open;
+  }
+
+  closeModal(close: boolean): void {
+    this.isModalVisible = close;
+    this.globalService.selectedPlanet = {} as Planet;
+  }
+
   removePlanet(): void {
     this.planetService.removePlanet(this.globalService.selectedPlanet);
     this.globalService.selectedPlanet = {} as Planet;
@@ -49,14 +58,5 @@ export class DashboardComponent implements OnInit {
   planetClicked(planetClicked: Planet): void {
     this.globalService.selectPlanet(planetClicked);
     this.router.navigate(['planet-detail']);
-  }
-
-  openModal(open : boolean) : void {
-    this.isModalVisible = open;
-  }
-
-  closeModal(close: boolean): void {
-    this.isModalVisible = close;
-    this.globalService.selectedPlanet = {} as Planet;
   }
 }

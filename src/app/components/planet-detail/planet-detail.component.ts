@@ -14,6 +14,7 @@ import { QuestService } from '../../services/quest/quest.service';
 export class PlanetDetailComponent implements OnInit {
   quests: Quest[];
   newQuest: Quest = {} as Quest;
+  isModalVisible: boolean = false;
 
   constructor(private store: Store<AppState>, private questService: QuestService, private globalService: GlobalService) { }
 
@@ -39,4 +40,17 @@ export class PlanetDetailComponent implements OnInit {
     this.globalService.selectedQuest = {} as Quest;
   }
 
+  openModal(open: boolean): void {
+    this.isModalVisible = open;
+  }
+
+  closeModal(close: boolean): void {
+    this.isModalVisible = close;
+    this.globalService.selectedQuest = {} as Quest;
+  }
+
+  removeQuest(): void {
+    this.questService.removeQuest(this.globalService.selectedQuest);
+    this.globalService.selectedQuest = {} as Quest;
+  }
 }

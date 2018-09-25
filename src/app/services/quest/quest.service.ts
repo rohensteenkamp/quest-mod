@@ -29,4 +29,8 @@ export class QuestService {
   editQuest(quest: Quest) {
     this.questCollection.doc(quest.key).update(quest.toData());
   }
+
+  removeQuest(quest: Quest) {
+    this.questCollection.doc(quest.key).delete();
+  }
 }

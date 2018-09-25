@@ -76,13 +76,17 @@
       </div>
     </div>
 
-    <div id="confirmModal" class="modal" role="dialog"  [ngStyle]="{'display': isModalVisible ? 'block' : 'none', 'opacity': 1}" (click)="closeModal(false)">
+    <div id="confirmModal" 
+      class="modal" 
+      role="dialog" 
+      [ngStyle]="{'display': isModalVisible ? 'block' : 'none', 'opacity': 1}" 
+      (click)="closeModal(false)">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content text-center">
           <div class="modal-body">
-            <p><strong>Are you sure you want to remove..?</strong></p>
+            <p><strong>Are you sure you want to remove...?</strong></p>
             <button type="button" 
-              class="ml-2 btn btn-outline-success btn-pill" 
+              class="btn btn-outline-success btn-pill" 
               (click)="removePlanet(); closeModal(false)">Remove
             </button>
             <button type="button" 

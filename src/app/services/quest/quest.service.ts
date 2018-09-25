@@ -25,4 +25,8 @@ export class QuestService {
   addQuest(quest: Quest) {
     this.questCollection.add(quest);
   }
+
+  editQuest(quest: Quest) {
+    this.questCollection.doc(quest.key).update(quest.toData());
+  }
 }

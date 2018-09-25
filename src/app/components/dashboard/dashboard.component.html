@@ -54,8 +54,7 @@
               <input #editedPlanetName class="form-control my-1" 
                 type="text" 
                 value="{{globalService.selectedPlanet.name}}" 
-                (keyup.enter)="globalService.selectedPlanet.name = editedPlanetName.value; 
-                  globalService.selectedPlanet.description = editedPlanetDescription.value; 
+                (keyup.enter)="globalService.selectedPlanet.name = editedPlanetName.value;  
                   editPlanet(globalService.selectedPlanet); this.isEditVisible = false">
               <input #editedPlanetDescription class="form-control" 
                 type="text" 

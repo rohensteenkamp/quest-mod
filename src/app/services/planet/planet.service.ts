@@ -25,12 +25,12 @@ constructor(db: AngularFirestore) {
     this.planetCollection.add(planet);
   }
 
-  removePlanet(planet: Planet) {
-    this.planetCollection.doc(planet.key).delete();
-  }
-
   editPlanet(planet: Planet) {
     this.planetCollection.doc(planet.key).update(planet.toData());
+  }
+
+  removePlanet(planet: Planet) {
+    this.planetCollection.doc(planet.key).delete();
   }
 }
 

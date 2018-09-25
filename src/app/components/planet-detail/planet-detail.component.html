@@ -26,7 +26,7 @@
             </div>
           </div>
 
-          <div class="row justify-content-center align-items-center">
+          <div *ngIf="!this.isEditVisible" class="row justify-content-center align-items-center">
             <div class="col-10 text-center">
               <h1 class="header text-white">Create a Quest</h1>
               <input [(ngModel)]="newQuest.title" 
@@ -59,31 +59,52 @@
           </div>
 
           <div class="row justify-content-center align-items-center">
-            <div class="col-10 text-center">
+            <div *ngIf="this.isEditVisible" class="col-10 text-center">
               <h1 class="header text-white">Edit a Quest</h1>
-              <input #editedQuestTitle
+              <input #editedQuestTitle class="form-control my-1"
                 type="text"
-                class="form-control my-1"
-                value="" />
+                value="{{globalService.selectedQuest.title}}"
+                (keyup.enter)="globalService.selectedQuest.title = editedQuestTitle.value; 
+                  editQuest(globalService.selectedQuest); 
+                  this.isEditVisible = false" />
               <input #editedQuestDescription
                 type="text"
                 class="form-control my-1"
-                value="" />
+                value="{{globalService.selectedQuest.description}}"
+                (keyup.enter)="globalService.selectedQuest.description = editedQuestDescription.value; 
+                  editQuest(globalService.selectedQuest); 
+                  this.isEditVisible = false" />
               <input #editedQuestMaxXP
                 type="text"
                 class="form-control my-1"
-                value="" /> 
+                value="{{globalService.selectedQuest.max_xp}}"
+                (keyup.enter)="globalService.selectedQuest.max_xp = editedQuestMaxXP.value; 
+                  editQuest(globalService.selectedQuest); 
+                  this.isEditVisible = false" /> 
               <input #editedQuestOrder
-                type="text"
+                type="number"
                 class="form-control my-1"
-                value="" />
+                value="{{globalService.selectedQuest.order}}"
+                (keyup.enter)="globalService.selectedQuest.order = editedQuestOrder.value; 
+                  editQuest(globalService.selectedQuest); 
+                  this.isEditVisible = false" />
               <input #editedQuestPrerequisites
                 type="text"
                 class="form-control my-1"
-                value="" /> 
+                value="{{globalService.selectedQuest.prerequisites}}"
+                (keyup.enter)="globalService.selectedQuest.prerequisites = editedQuestPrerequisites.value; 
+                  editQuest(globalService.selectedQuest); 
+                  this.isEditVisible = false" /> 
               <br>
               <button type="button"
-                class="btn btn-success mb-2">Save
+                class="btn btn-success mb-2"
+                (click)="globalService.selectedQuest.title = editedQuestTitle.value;
+                  globalService.selectedQuest.description = editedQuestDescription.value;
+                  globalService.selectedQuest.max_xp = editedQuestMaxXP.value;
+                  globalService.selectedQuest.order = editedQuestOrder.value;
+                  globalService.selectedQuest.prerequisites = editedQuestPrerequisites.value;
+                  editQuest(globalService.selectedQuest); 
+                  this.isEditVisible = false">Save
               </button>
             </div>
           </div>

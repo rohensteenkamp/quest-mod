@@ -35,6 +35,11 @@ export class DashboardComponent implements OnInit {
   selectPlanet(planetSelected: Planet): void {
     this.globalService.selectPlanet(planetSelected);
   }
+
+  editPlanet(): void {   
+    this.planetService.editPlanet(this.globalService.selectedPlanet);
+    this.globalService.selectedPlanet = {} as Planet;
+  }
  
   removePlanet(): void {
     this.planetService.removePlanet(this.globalService.selectedPlanet);
@@ -44,11 +49,6 @@ export class DashboardComponent implements OnInit {
   planetClicked(planetClicked: Planet): void {
     this.globalService.selectPlanet(planetClicked);
     this.router.navigate(['planet-detail']);
-  }
-
-  editPlanet(): void {   
-    this.planetService.editPlanet(this.globalService.selectedPlanet);
-    this.globalService.selectedPlanet = {} as Planet;
   }
 
   openModal(open : boolean) : void {

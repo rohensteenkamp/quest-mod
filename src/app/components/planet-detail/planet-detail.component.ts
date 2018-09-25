@@ -34,4 +34,9 @@ export class PlanetDetailComponent implements OnInit {
     this.globalService.selectQuest(questSelected);
   }
 
+  editQuest(): void {
+    this.questService.editQuest(this.globalService.selectedQuest);
+    this.globalService.selectedQuest = {} as Quest;
+  }
+
 }

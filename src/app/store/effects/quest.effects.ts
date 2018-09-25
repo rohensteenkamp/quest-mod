@@ -20,7 +20,8 @@ export class QuestEffects {
         map(action => {
             if(action.type === "added")
                 return new actions.GetQuestSuccess(new Quest(action.payload.doc.id, action.payload.doc.data() as QuestData));
-
+            else if(action.type === "removed")
+                return new actions.RemoveQuestSuccess(action.payload.doc.id);    
             return new actions.UnimplementedAction("");
         })
     );

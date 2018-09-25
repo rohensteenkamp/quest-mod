@@ -14,10 +14,15 @@ export class QuestService {
 
   constructor(db: AngularFirestore, private globalService: GlobalService) { 
     this.questCollection = db.collection<Quest>("planets/" + this.globalService.selectedPlanet.key + "/quests");
+    
     this.quests$ = db.collection("planets/" + this.globalService.selectedPlanet.key + "/quests").snapshotChanges().pipe(
       map(actions => {
         return actions.map(action => new Quest(action.payload.doc.id, action.payload.doc.data() as QuestData));
       })
     );
+  }
+
+  addQuest(quest: Quest) {
+    this.questCollection.add(quest);
   }
 }

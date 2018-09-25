@@ -26,7 +26,6 @@ export class UnimplementedAction implements Action {
     constructor(public payload: string) { }
 }
 
-
 export type PlanetActions =
     | GetPlanets
     | GetPlanetSuccess

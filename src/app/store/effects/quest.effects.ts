@@ -19,10 +19,10 @@ export class QuestEffects {
         }),
         mergeMap(actions => actions),
         map(action => {
-            if(action.type === "added") {
+            if(action.type === "added")
                 return new actions.GetQuestSuccess(new Quest(action.payload.doc.id, action.payload.doc.data() as QuestData));
 
-            }
+            return new actions.UnimplementedAction("");
         })
     );
 }

@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app-state';
 import * as actions from '../../store/actions'
 import { GlobalService } from '../../services/global/global.service';
+import { QuestService } from '../../services/quest/quest.service';
 
 @Component({
   selector: 'app-planet-detail',
@@ -12,15 +13,21 @@ import { GlobalService } from '../../services/global/global.service';
 })
 export class PlanetDetailComponent implements OnInit {
   quests: Quest[];
+  newQuest: Quest = {} as Quest;
 
-  constructor(private store: Store<AppState>, private globalService: GlobalService) { }
+  constructor(private store: Store<AppState>, private questService: QuestService) { }
 
   ngOnInit() {
     this.store.dispatch(new actions.GetQuests());
-    console.log(' in oninit');
+
     this.store.select('quest').subscribe(questState => {
       this.quests = questState.quests;
     })
+  }
+
+  addQuest(): void {
+    this.questService.addQuest(this.newQuest);
+    this.newQuest = {} as Quest;
   }
 
 }

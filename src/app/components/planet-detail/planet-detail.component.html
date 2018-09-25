@@ -26,7 +26,37 @@
             </div>
           </div>
 
-          
+          <div class="row justify-content-center align-items-center">
+            <div class="col-10 text-center">
+              <h1 class="header text-white">Create a Quest</h1>
+              <input [(ngModel)]="newQuest.title" 
+                type="text" 
+                class="form-control my-1" 
+                placeholder="new title..." />
+              <input [(ngModel)]="newQuest.description" 
+                type="text" 
+                class="form-control my-1" 
+                placeholder="new description..." />
+              <input [(ngModel)]="newQuest.max_xp" 
+                type="text" 
+                class="form-control my-1" 
+                placeholder="new max xp..." />
+              <input [(ngModel)]="newQuest.order" 
+                type="number" 
+                class="form-control my-1" 
+                placeholder="new order..." />
+              <input [(ngModel)]="newQuest.prerequisites" 
+                type="text" 
+                class="form-control my-1" 
+                placeholder="new prerequisites..."
+                (keyup.enter)="addQuest(newQuest)" />
+              <br>
+              <button type="button" 
+                class=" btn btn-success mb-2" 
+                (click)="addQuest(newQuest)" >Create
+              </button>
+            </div>
+          </div>
 
         </div>  
       </div>

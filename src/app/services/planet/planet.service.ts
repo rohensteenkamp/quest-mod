@@ -13,6 +13,7 @@ export class PlanetService {
 
 constructor(db: AngularFirestore) {
   this.planetCollection = db.collection<Planet>("planets");
+  
   this.planets$ = db.collection("planets").snapshotChanges().pipe(
     map(actions => {
       return actions.map(action => new Planet(action.payload.doc.id, action.payload.doc.data() as PlanetData));

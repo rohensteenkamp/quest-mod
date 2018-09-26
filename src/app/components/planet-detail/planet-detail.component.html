@@ -44,6 +44,7 @@
               <input [(ngModel)]="newQuest.order" 
                 type="number" 
                 class="form-control my-1" 
+                step="1000"
                 placeholder="new order..." />
               <select [(ngModel)]="newQuest.prerequisites" class="form-control">
                 <option *ngFor="let quest of quests" [ngValue]="quest.key">{{quest.key}}</option>
@@ -83,6 +84,7 @@
                 type="number"
                 class="form-control my-1"
                 value="{{globalService.selectedQuest.order}}"
+                step="1000"
                 (keyup.enter)="globalService.selectedQuest.order = editedQuestOrder.value; 
                   editQuest(globalService.selectedQuest); 
                   this.isEditVisible = false" />

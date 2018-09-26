@@ -45,9 +45,8 @@
                 type="number" 
                 class="form-control my-1" 
                 placeholder="new order..." />
-              <select class="form-control">
-                <option selected>new prerequisites...</option>
-                <option *ngFor="let quest of quests">{{quest.key}}</option>
+              <select [(ngModel)]="newQuest.prerequisites" class="form-control">
+                <option *ngFor="let quest of quests" [ngValue]="quest.key">{{quest.key}}</option>
               </select>  
               <br>
               <button type="button" 
@@ -87,17 +86,14 @@
                 (keyup.enter)="globalService.selectedQuest.order = editedQuestOrder.value; 
                   editQuest(globalService.selectedQuest); 
                   this.isEditVisible = false" />
-              <select class="form-control">
-                <option>new prerequisites...</option>
-                <option *ngFor="let quest of quests">{{quest.key}}</option>
-              </select>    
-              <!-- <input #editedQuestPrerequisites
-                type="text"
-                class="form-control my-1"
-                value="{{globalService.selectedQuest.prerequisites}}"
-                (keyup.enter)="globalService.selectedQuest.prerequisites = editedQuestPrerequisites.value; 
+              <select #editedQuestPrerequisites class="form-control">
+                <option *ngFor="let quest of quests" 
+                  (click)="globalService.selectedQuest.prerequisites = editedQuestPrerequisites.value; 
                   editQuest(globalService.selectedQuest); 
-                  this.isEditVisible = false" />  -->
+                  this.isEditVisible = false" 
+                  value="{{globalService.selectedQuest.prerequisites}}">{{quest.key}}
+                </option>
+              </select>    
               <br>
               <button type="button"
                 class="btn btn-success mb-2"

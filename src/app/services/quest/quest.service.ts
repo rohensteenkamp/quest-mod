@@ -23,7 +23,13 @@ export class QuestService {
   }
 
   addQuest(quest: Quest) {
-    this.questCollection.add(quest);
+    if(quest.prerequisites == undefined){
+      quest.prerequisites = "";
+      this.questCollection.add(quest);
+    }
+    else {
+      this.questCollection.add(quest);
+    }
   }
 
   editQuest(quest: Quest) {

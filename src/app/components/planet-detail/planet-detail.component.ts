@@ -5,6 +5,7 @@ import { AppState } from '../../store/app-state';
 import * as actions from '../../store/actions'
 import { GlobalService } from '../../services/global/global.service';
 import { QuestService } from '../../services/quest/quest.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-planet-detail',
@@ -16,7 +17,7 @@ export class PlanetDetailComponent implements OnInit {
   newQuest: Quest = {} as Quest;
   isModalVisible: boolean = false;
 
-  constructor(private store: Store<AppState>, private questService: QuestService, private globalService: GlobalService) { }
+  constructor(public router: Router, private store: Store<AppState>, private questService: QuestService, private globalService: GlobalService) { }
 
   ngOnInit() {
     this.store.dispatch(new actions.GetQuests());
@@ -52,5 +53,10 @@ export class PlanetDetailComponent implements OnInit {
   removeQuest(): void {
     this.questService.removeQuest(this.globalService.selectedQuest);
     this.globalService.selectedQuest = {} as Quest;
+  }
+
+  questClicked(clickedQuest: Quest): void {
+    this.globalService.selectQuest(clickedQuest);
+    this.router.navigate(['quest-detail']);
   }
 }

@@ -12,14 +12,15 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import * as reducers from './store/reducers';
 import * as effects from './store/effects';
-import { StoreDevtoolsModule} from '@ngrx/store-devtools'
+import { StoreDevtoolsModule} from '@ngrx/store-devtools';
+import { QuestDetailComponent } from './components/quest-detail/quest-detail.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    PlanetDetailComponent
-    
+    PlanetDetailComponent,
+    QuestDetailComponent
   ],
   imports: [
     BrowserModule,

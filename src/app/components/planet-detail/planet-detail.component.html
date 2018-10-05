@@ -10,9 +10,11 @@
               <h1 class="header text-white">Quest Listings</h1>
               <ul class="list-group">
                 <li class="my-1 list-group-item list-group-item-action" *ngFor = "let quest of quests">
-                  <b>{{quest.title}}</b> 
-                  <br>
-                  <p>{{quest.description}}</p>
+                  <span (click)="questClicked(quest)">
+                    <b>{{quest.title}}</b> 
+                    <br>
+                    <p>{{quest.description}}</p>
+                  </span>
                   <button type="button" 
                     class="btn btn-outline-danger btn-pill" 
                     (click)="openModal(true); selectQuest(quest)">X

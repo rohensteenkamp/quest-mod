@@ -1,3 +1,165 @@
-<p>
-  quest-detail works!
-</p>
+<div id="intro" class="middle">
+    <div class="container">
+  
+      <div class="row justify-content-center align-items-left">
+        <div class="col-10">
+          <div class="card bg-info">
+  
+            <div class="row justify-content-center align-items-center">
+              <div class="col-10">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupPrepend3">title</span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="title">
+                </div>
+              </div>
+            </div>
+
+            <div class="row justify-content-center align-items-center">
+              <div class="col-10">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupPrepend3">description</span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="description">
+                </div>
+              </div>
+            </div>
+  
+            <!-- <div class="row justify-content-center align-items-center">
+              <div *ngIf="!this.isEditVisible" class="col-10 text-center">
+                <h1 class="header text-white">Create a Quest</h1>
+                <input [(ngModel)]="newQuest.title" 
+                  type="text" 
+                  class="form-control my-1" 
+                  placeholder="new title..." />
+                <input [(ngModel)]="newQuest.description" 
+                  type="text" 
+                  class="form-control my-1" 
+                  placeholder="new description..." />
+                <input [(ngModel)]="newQuest.level1" 
+                  type="text" 
+                  class="form-control my-1" 
+                  placeholder="new level 1..." />
+                <input [(ngModel)]="newQuest.level2" 
+                  type="text" 
+                  class="form-control my-1" 
+                  placeholder="new level 2..." />
+                <input [(ngModel)]="newQuest.max_xp" 
+                  type="text" 
+                  class="form-control my-1" 
+                  placeholder="new max xp..." />
+                <input [(ngModel)]="newQuest.order" 
+                  type="number" 
+                  class="form-control my-1" 
+                  step="1000"
+                  placeholder="new order..." />
+                <select [(ngModel)]="newQuest.prerequisites" class="form-control">
+                  <option *ngFor="let quest of quests" [ngValue]="quest.key">{{quest.key}}</option>
+                </select>  
+                <br>
+                <button type="button" 
+                  class=" btn btn-success mb-2" 
+                  (click)="addQuest(newQuest)">Create
+                </button>
+              </div>
+            </div>
+  
+            <div class="row justify-content-center align-items-center">
+              <div *ngIf="this.isEditVisible" class="col-10 text-center">
+                <h1 class="header text-white">Edit a Quest</h1>
+                <input #editedQuestTitle class="form-control my-1"
+                  type="text"
+                  value="{{globalService.selectedQuest.title}}"
+                  (keyup.enter)="globalService.selectedQuest.title = editedQuestTitle.value; 
+                    editQuest(globalService.selectedQuest); 
+                    this.isEditVisible = false" />
+                <input #editedQuestDescription
+                  type="text"
+                  class="form-control my-1"
+                  value="{{globalService.selectedQuest.description}}"
+                  (keyup.enter)="globalService.selectedQuest.description = editedQuestDescription.value; 
+                    editQuest(globalService.selectedQuest); 
+                    this.isEditVisible = false" />
+                <input #editedQuestLevel1
+                  type="text"
+                  class="form-control my-1"
+                  value="{{globalService.selectedQuest.level1}}"
+                  (keyup.enter)="globalService.selectedQuest.level1 = editedQuestDescription.value; 
+                    editQuest(globalService.selectedQuest); 
+                    this.isEditVisible = false" />
+                <input #editedQuestLevel2
+                  type="text"
+                  class="form-control my-1"
+                  value="{{globalService.selectedQuest.level2}}"
+                  (keyup.enter)="globalService.selectedQuest.level2 = editedQuestDescription.value; 
+                    editQuest(globalService.selectedQuest); 
+                    this.isEditVisible = false" />
+                <input #editedQuestMaxXP
+                  type="text"
+                  class="form-control my-1"
+                  value="{{globalService.selectedQuest.max_xp}}"
+                  (keyup.enter)="globalService.selectedQuest.max_xp = editedQuestMaxXP.value; 
+                    editQuest(globalService.selectedQuest); 
+                    this.isEditVisible = false" /> 
+                <input #editedQuestOrder
+                  type="number"
+                  class="form-control my-1"
+                  value="{{globalService.selectedQuest.order}}"
+                  step="1000"
+                  (keyup.enter)="globalService.selectedQuest.order = editedQuestOrder.value; 
+                    editQuest(globalService.selectedQuest); 
+                    this.isEditVisible = false" />
+                <select #editedQuestPrerequisites class="form-control">
+                  <option *ngFor="let quest of quests" 
+                    (click)="globalService.selectedQuest.prerequisites = editedQuestPrerequisites.value; 
+                    editQuest(globalService.selectedQuest); 
+                    this.isEditVisible = false" 
+                    value="{{globalService.selectedQuest.prerequisites}}">{{quest.key}}
+                  </option>
+                </select>    
+                <br>
+                <button type="button"
+                  class="btn btn-success mb-2"
+                  (click)="globalService.selectedQuest.title = editedQuestTitle.value;
+                    globalService.selectedQuest.description = editedQuestDescription.value;
+                    globalService.selectedQuest.level1 = editedQuestLevel1.value;
+                    globalService.selectedQuest.level2 = editedQuestLevel2.value;
+                    globalService.selectedQuest.max_xp = editedQuestMaxXP.value;
+                    globalService.selectedQuest.order = editedQuestOrder.value;
+                    globalService.selectedQuest.prerequisites = editedQuestPrerequisites.value;
+                    editQuest(globalService.selectedQuest); 
+                    this.isEditVisible = false">Save
+                </button>
+              </div>
+            </div> -->
+  
+        </div>
+      </div>
+  
+      <div id="confirmModal" 
+        class="modal" 
+        role="dialog" 
+        [ngStyle]="{'display': isModalVisible ? 'block' : 'none', 'opacity': 1}" 
+        (click)="closeModal(false)">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content text-center">
+            <div class="modal-body">
+              <p><strong>Are you sure you want to remove...?</strong></p>
+              <button type="button" 
+                class="btn btn-outline-success btn-pill" 
+                (click)="removeQuest(); closeModal(false)">Remove
+              </button>
+              <button type="button"
+                class="ml-2 btn btn-outline-danger btn-pill"
+                (click)="closeModal(false)">Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  

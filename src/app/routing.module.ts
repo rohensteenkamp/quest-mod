@@ -7,7 +7,7 @@ import { QuestDetailComponent } from './components/quest-detail/quest-detail.com
 const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'planet-detail', component: PlanetDetailComponent },
-  { path: 'quest-detail', component: QuestDetailComponent }
+  { path: 'planet-detail/quest-detail', component: QuestDetailComponent }
 ]
 
 @NgModule({

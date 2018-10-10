@@ -4,6 +4,10 @@ import { Quest } from '../../models/quest';
 export function questReducer(state = intitialQuestState, action: actions.QuestActions) {
     const newState = {...state};
     switch(action.type) {   
+        case actions.GET_QUESTS:
+            newState.quests = [];
+            newState.loading = false;
+            return newState;
         case actions.GET_QUEST_SUCCESS:
             const getQuestSuccessAction = action as actions.GetQuestSuccess;
             newState.quests = [...newState.quests, getQuestSuccessAction.payload];

@@ -1,74 +1,44 @@
 <div id="intro" class="middle">
-    <div class="container">
+  <div class="container">
   
-      <div class="row justify-content-center align-items-left">
-        <div class="col-10">
-          <div class="card bg-info">
-  
-            <div class="row justify-content-center align-items-center">
-              <div class="col-10">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroupPrepend3">title</span>
-                  </div>
-                  <input type="text" class="form-control" placeholder="title">
-                </div>
-              </div>
-            </div>
+    <div class="row justify-content-center align-items-left">
+      <div class="col-6">
+        <div class="card bg-info">
 
-            <div class="row justify-content-center align-items-center">
-              <div class="col-10">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroupPrepend3">description</span>
-                  </div>
-                  <input type="text" class="form-control" placeholder="description">
-                </div>
-              </div>
+          <div class="row justify-content-center align-items-center">
+            <div class="col-10 text-center">
+              <h1 class="header text-white">Quest Details</h1>
+              <ul class="list-group">
+                <li class="list-group-item mb-2">
+                  <b>title: </b> {{globalService.selectedQuest.title}}
+                  <br>
+                  <b>description: </b> {{globalService.selectedQuest.description}}
+                  <br>
+                  <b>level1: </b> {{globalService.selectedQuest.level1}}
+                  <br>
+                  <b>level2: </b> {{globalService.selectedQuest.level2}}
+                  <br>
+                  <b>max_xp: </b> {{globalService.selectedQuest.max_xp}}
+                  <br>
+                  <b>order: </b> {{globalService.selectedQuest.order}}
+                  <br>
+                  <p><b>prerequisites: </b> {{globalService.selectedQuest.prerequisites}}</p>
+                  <button type="button" 
+                    class="btn btn-outline-danger btn-pill" 
+                    (click)="openModal(true)">X
+                  </button>
+                  <button type="button" 
+                    class="btn btn-outline-primary btn-pill ml-1" 
+                    (click)="this.isEditVisible = true">Edit
+                  </button>
+                </li>
+              </ul>
             </div>
-  
-            <!-- <div class="row justify-content-center align-items-center">
-              <div *ngIf="!this.isEditVisible" class="col-10 text-center">
-                <h1 class="header text-white">Create a Quest</h1>
-                <input [(ngModel)]="newQuest.title" 
-                  type="text" 
-                  class="form-control my-1" 
-                  placeholder="new title..." />
-                <input [(ngModel)]="newQuest.description" 
-                  type="text" 
-                  class="form-control my-1" 
-                  placeholder="new description..." />
-                <input [(ngModel)]="newQuest.level1" 
-                  type="text" 
-                  class="form-control my-1" 
-                  placeholder="new level 1..." />
-                <input [(ngModel)]="newQuest.level2" 
-                  type="text" 
-                  class="form-control my-1" 
-                  placeholder="new level 2..." />
-                <input [(ngModel)]="newQuest.max_xp" 
-                  type="text" 
-                  class="form-control my-1" 
-                  placeholder="new max xp..." />
-                <input [(ngModel)]="newQuest.order" 
-                  type="number" 
-                  class="form-control my-1" 
-                  step="1000"
-                  placeholder="new order..." />
-                <select [(ngModel)]="newQuest.prerequisites" class="form-control">
-                  <option *ngFor="let quest of quests" [ngValue]="quest.key">{{quest.key}}</option>
-                </select>  
-                <br>
-                <button type="button" 
-                  class=" btn btn-success mb-2" 
-                  (click)="addQuest(newQuest)">Create
-                </button>
-              </div>
-            </div>
-  
-            <div class="row justify-content-center align-items-center">
-              <div *ngIf="this.isEditVisible" class="col-10 text-center">
-                <h1 class="header text-white">Edit a Quest</h1>
+          </div>
+
+          <div class="row justify-content-center align-items-center">
+            <div *ngIf="this.isEditVisible" class="col-10 text-center">
+              <h1 class="header text-white">Edit a Quest</h1>
                 <input #editedQuestTitle class="form-control my-1"
                   type="text"
                   value="{{globalService.selectedQuest.title}}"
@@ -133,33 +103,11 @@
                     this.isEditVisible = false">Save
                 </button>
               </div>
-            </div> -->
-  
-        </div>
-      </div>
-  
-      <div id="confirmModal" 
-        class="modal" 
-        role="dialog" 
-        [ngStyle]="{'display': isModalVisible ? 'block' : 'none', 'opacity': 1}" 
-        (click)="closeModal(false)">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content text-center">
-            <div class="modal-body">
-              <p><strong>Are you sure you want to remove...?</strong></p>
-              <button type="button" 
-                class="btn btn-outline-success btn-pill" 
-                (click)="removeQuest(); closeModal(false)">Remove
-              </button>
-              <button type="button"
-                class="ml-2 btn btn-outline-danger btn-pill"
-                (click)="closeModal(false)">Cancel
-              </button>
             </div>
-          </div>
-        </div>
+
+        </div>  
       </div>
-  
     </div>
+
   </div>
-  
+</div>  

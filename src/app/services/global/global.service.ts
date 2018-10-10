@@ -8,6 +8,7 @@ import { Quest } from '../../models/quest';
 export class GlobalService {
   selectedPlanet: Planet = {} as Planet;
   selectedQuest: Quest = {} as Quest;
+  quests: Quest[];
 
   constructor() { }
 

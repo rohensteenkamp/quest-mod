@@ -82,7 +82,7 @@
                     editQuest(globalService.selectedQuest); 
                     this.isEditVisible = false" />
                 <select #editedQuestPrerequisites class="form-control">
-                  <option *ngFor="let quest of quests" 
+                  <option *ngFor="let quest of globalService.quests" 
                     (click)="globalService.selectedQuest.prerequisites = editedQuestPrerequisites.value; 
                     editQuest(globalService.selectedQuest); 
                     this.isEditVisible = false" 

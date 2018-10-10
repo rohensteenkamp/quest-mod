@@ -24,6 +24,7 @@ export class PlanetDetailComponent implements OnInit {
 
     this.store.select('quest').subscribe(questState => {
       this.quests = questState.quests;
+      this.globalService.quests = questState.quests;
     })
   }
 

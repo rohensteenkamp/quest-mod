@@ -58,6 +58,6 @@ export class PlanetDetailComponent implements OnInit {
 
   questClicked(clickedQuest: Quest): void {
     this.globalService.selectQuest(clickedQuest);
-    this.router.navigate(['quest-detail']);
+    this.router.navigate(['planet-detail/quest-detail']);
   }
 }

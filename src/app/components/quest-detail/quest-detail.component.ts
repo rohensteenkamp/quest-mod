@@ -20,7 +20,6 @@ export class QuestDetailComponent implements OnInit {
 
   editQuest(): void {
     this.questService.editQuest(this.globalService.selectedQuest);
-    this.globalService.selectedQuest = {} as Quest;
   }
 
   openModal(open: boolean): void {

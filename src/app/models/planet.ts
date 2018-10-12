@@ -6,9 +6,9 @@ export class Planet {
         this.description = data.description;
     }
     
-        key: string;
-        name: string; 
-        description: string;
+    key: string;
+    name: string; 
+    description: string;
     
     toData(): PlanetData {
         return {

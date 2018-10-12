@@ -28,8 +28,8 @@ import { QuestDetailComponent } from './components/quest-detail/quest-detail.com
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    StoreModule.forRoot({planet: reducers.planetReducer, quest: reducers.questReducer}),
-    EffectsModule.forRoot([effects.PlanetEffects, effects.QuestEffects]),
+    StoreModule.forRoot({planet: reducers.planetReducer, quest: reducers.questReducer, explorer: reducers.explorerReducer}),
+    EffectsModule.forRoot([effects.PlanetEffects, effects.QuestEffects, effects.ExplorerEffects]),
     StoreDevtoolsModule.instrument()
   ],
   providers: [],

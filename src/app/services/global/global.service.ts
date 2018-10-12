@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Planet } from '../../models/planet';
 import { Quest, QuestData } from '../../models/quest';
+import { Explorer } from 'src/app/models/explorer';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,8 @@ import { Quest, QuestData } from '../../models/quest';
 export class GlobalService {
   selectedPlanet: Planet = {} as Planet;
   selectedQuest: Quest = {} as Quest;
-  quests: Quest[];
+  selectedExplorer: Explorer = {} as Explorer;
+  selectedPlanetQuests: Quest[];
 
   constructor() { }
 
@@ -20,5 +22,10 @@ export class GlobalService {
   selectQuest(questSelected: Quest): void {
     this.selectedQuest = questSelected;
     console.log(this.selectedQuest);
+  }
+
+  selectExplorer(explorerSelected: Explorer): void {
+    this.selectedExplorer = explorerSelected;
+    console.log(this.selectedExplorer);
   }
 }

@@ -31,13 +31,12 @@ export class QuestDetailComponent implements OnInit {
 
   closeModal(close: boolean): void {
     this.isModalVisible = close;
-    this.globalService.selectedQuest = {} as Quest;
   }
 
   removeQuest(): void {
     this.questService.removeQuest(this.globalService.selectedQuest);
     this.globalService.selectedQuest = {} as Quest;
-    this.router.navigate(['planet-detail'])
+    this.router.navigate(['planet-detail']);
   }
 
 }

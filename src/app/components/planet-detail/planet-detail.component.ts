@@ -6,6 +6,7 @@ import * as actions from '../../store/actions'
 import { GlobalService } from '../../services/global/global.service';
 import { QuestService } from '../../services/quest/quest.service';
 import { Router } from '@angular/router';
+import { Planet } from 'src/app/models/planet';
 
 @Component({
   selector: 'app-planet-detail',
@@ -59,5 +60,10 @@ export class PlanetDetailComponent implements OnInit {
   questClicked(clickedQuest: Quest): void {
     this.globalService.selectQuest(clickedQuest);
     this.router.navigate(['planet-detail/quest-detail']);
+  }
+
+  navigateDashboard(): void {
+    this.globalService.selectedPlanet = {} as Planet;
+    this.router.navigate([''])
   }
 }

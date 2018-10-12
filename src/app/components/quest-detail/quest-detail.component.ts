@@ -19,6 +19,9 @@ export class QuestDetailComponent implements OnInit {
   }
 
   editQuest(): void {
+    if(this.globalService.selectedQuest.prerequisites == "none") {
+      this.globalService.selectedQuest.prerequisites = "";
+    }
     this.questService.editQuest(this.globalService.selectedQuest);
   }
 

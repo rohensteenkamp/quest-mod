@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Planet } from '../../models/planet';
-import { Quest } from '../../models/quest';
+import { Quest, QuestData } from '../../models/quest';
 
 @Injectable({
   providedIn: 'root'

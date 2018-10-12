@@ -37,8 +37,8 @@
           </div>
 
           <div class="row justify-content-center align-items-center">
-            <div *ngIf="this.isEditVisible" class="col-10 text-center">
-              <h1 class="header text-white">Edit a Quest</h1>
+              <div *ngIf="this.isEditVisible" class="col-10 text-center">
+                <h1 class="header text-white">Edit a Quest</h1>
                 <input #editedQuestTitle class="form-control my-1"
                   type="text"
                   value="{{globalService.selectedQuest.title}}"
@@ -85,8 +85,7 @@
                   <option *ngFor="let quest of globalService.quests" 
                     (click)="globalService.selectedQuest.prerequisites = editedQuestPrerequisites.value; 
                     editQuest(globalService.selectedQuest); 
-                    this.isEditVisible = false" 
-                    value="{{globalService.selectedQuest.prerequisites}}">{{quest.key}}
+                    this.isEditVisible = false">{{quest.prerequisites}}
                   </option>
                 </select>    
                 <br>

@@ -3,8 +3,8 @@ import { Planet } from '../../models/planet';
 
 export const GET_PLANETS = '[planet] GET_PLANETS';
 export const GET_PLANET_SUCCESS = '[planet] GET_PLANET_SUCCESS';
-export const UNIMPLEMENTED_ACTION = '[planet] UNIMPLEMENTED_ACTION';
 export const REMOVE_PLANET_SUCCESS = '[planet] REMOVE_PLANET_SUCCESS';
+export const UNIMPLEMENTED_ACTION = '[planet] UNIMPLEMENTED_ACTION';
 
 export class GetPlanets implements Action {
     type = GET_PLANETS;
@@ -29,5 +29,5 @@ export class UnimplementedAction implements Action {
 export type PlanetActions =
     | GetPlanets
     | GetPlanetSuccess
-    | UnimplementedAction
     | RemovePlanetSuccess
+    | UnimplementedAction

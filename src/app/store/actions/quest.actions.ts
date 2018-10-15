@@ -4,8 +4,6 @@ import { Quest } from "../../models/quest";
 export const GET_QUESTS = "[quest] GET_QUESTS";
 export const GET_QUEST_SUCCESS = "[quest] GET_QUEST_SUCCESS";
 export const REMOVE_QUEST_SUCCESS = "[quest] REMOVE_PLANET_SUCCESS";
-export const UNIMPLEMENTED_ACTION = "[quest] UNIMPLEMENTED_ACTION";
-
 
 export class GetQuests implements Action {
     type = GET_QUESTS;
@@ -22,13 +20,7 @@ export class RemoveQuestSuccess implements Action {
     constructor(public payload: string) {}
 }
 
-export class UnimplementedAction implements Action {
-    type = UNIMPLEMENTED_ACTION;
-    constructor(public payload: string) { }
-}
-
 export type QuestActions = 
     | GetQuests
     | GetQuestSuccess
     | RemoveQuestSuccess
-    | UnimplementedAction

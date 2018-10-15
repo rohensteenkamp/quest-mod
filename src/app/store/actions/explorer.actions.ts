@@ -3,7 +3,6 @@ import { Explorer } from "src/app/models/explorer";
 
 export const GET_EXPLORERS = '[explorer] GET_EXPLORERS';
 export const GET_EXPLORER_SUCCESS = '[explorer] GET_EXPLORER_SUCCESS';
-export const UNIMPLEMENTED_ACTION = '[explorer] UNIMPLEMENTED_ACTION';
 
 export class GetExplorers implements Action {
     type = GET_EXPLORERS;
@@ -15,12 +14,6 @@ export class GetExplorerSuccess implements Action {
     constructor(public payload: Explorer) {}
 }
 
-export class UnimplementedAction implements Action {
-    type = UNIMPLEMENTED_ACTION;
-    constructor(public payload: string) { }
-}
-
 export type ExplorerActions =
     | GetExplorers
     | GetExplorerSuccess
-    | UnimplementedAction

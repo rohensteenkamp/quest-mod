@@ -1,14 +1,7 @@
 <div id="intro" class="middle">
+  
   <div class="container">
-
-    <div class="row justify-content-center">
-      <div class="col-3">
-        <button type="button" 
-          class="btn btn-info btn-pill" 
-          (click)="navigateDashboard()">Back
-        </button> 
-      </div>
-
+    <div class="row">
       <div class="col-6">
         <div class="card bg-info">
 
@@ -71,9 +64,39 @@
           </div>
 
         </div>  
+        <div class="row">
+        <div class="col-6">
+        <button type="button" 
+          class="btn btn-info btn-pill" 
+          (click)="navigateDashboard()">Back
+        </button> 
+      </div>
+    </div>
       </div>
 
-      <div class="col-3"></div>
+      <div class="col-6">
+        <div class="card bg-info">
+
+          <div class="row justify-content-center align-items-center">
+            <div class="col-10 text-center">
+              <h1 class="header text-white">Explorers</h1>
+              <ul class="list-group">
+                <li class="my-1 list-group-item list-group-item-action" *ngFor = "let quest of quests">
+                  <span (click)="questClicked(quest)">
+                    <b>{{quest.title}}</b> 
+                    <br>
+                    <p>{{quest.description}}</p>
+                  </span>
+                  <button type="button" 
+                    class="btn btn-outline-danger btn-pill" 
+                    (click)="openModal(true); selectQuest(quest)">X
+                  </button>                     
+                </li>
+              </ul>
+            </div>
+          </div>
+          </div>
+      </div>
     </div>
 
     <div id="confirmModal" 
@@ -97,6 +120,5 @@
         </div>
       </div>
     </div>
-
   </div>
-</div>
+  </div>

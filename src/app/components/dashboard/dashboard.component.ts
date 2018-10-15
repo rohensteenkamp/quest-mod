@@ -24,6 +24,8 @@ export class DashboardComponent implements OnInit {
 
     this.store.select("planet").subscribe(planetState =>{
       this.planets = planetState.planets;
+      console.log(this.planets);
+      
     })
   }
 
